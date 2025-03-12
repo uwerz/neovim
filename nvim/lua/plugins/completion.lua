@@ -42,6 +42,14 @@ return {
           return item
         end,
       },
+      mapping = {
+        ["<CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+        }),
+        ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+        ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+      },
       experimental = {
         -- only show ghost text when we show ai completions
         ghost_text = vim.g.ai_cmp and {
